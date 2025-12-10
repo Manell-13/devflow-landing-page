@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body{
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header {
+    position: relative;
+    background-image: url('./img/header_img01.jpg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* Capa encima con blur + oscurecimiento */
+.header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45); 
+    backdrop-filter: blur(4px);  
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1;
+}
+
+/* Para que el contenido del header quede por encima del blur */
+.header > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* NAVBAR */
+
+.navbar{
+    display: flex;
+    justify-content: space-between;    
+    padding: 1.7rem 1.5rem 0rem 1.5rem;
+}
+
+.navbar-list{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem;
+}
+
+.logo-text{
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.06em;
+    margin: 0;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;           
+    border: 1px solid rgba(255,255,255,0.35);
+    background: rgba(0, 0, 0, 0.18); 
+    backdrop-filter: blur(4px);      
+}
+
+/* enlaces del navbar */
+.navbar-link{
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    font-size: 0.95rem;
+    transition: color .25s ease;
+    padding-bottom: 2px;
+}
+
+.navbar-link::after{
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: width .25s ease;
+}
+
+.navbar-link:hover{
+    cursor: pointer;
+    color: #d4d4ff;
+}
+
+.navbar-link:hover::after{
+    width: 100%;
+}
+
+/* link activo (sección actual) */
+.navbar-link.active{
+    font-weight: 600;
+}
+
+.navbar-link.active::after{
+    width: 100%;
+    background-color: #6f62f7; /* tu color principal */
+}
+
+/* HERO */
+
+.hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 3.5rem;
+}
+
+.hero-title{
+    color: #fff;
+    font-size: 2.6rem;
+    font-weight: bold;
+}
+
+.hero-text{
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.hero-button{
+    margin: 1rem 0rem 8rem 0rem;
+    padding: 0.8rem 1.4rem 0.8rem 1.4rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #6f62f7;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.hero-button:hover{
+    cursor: pointer;
+    background-color: #5953d8;
+}
+
+/* MAIN - Projects*/
+
+.projects{
+    background-color: #f7f7f7;
+    padding: 1rem 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projects-header{
+    padding: 0rem 1.2rem;
+}
+
+.section-title{
+    font-size: 1.7rem;
+}
+
+.section-description{
+    color: #727272;
+}
+
+.project-list{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.project-card{
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-img{
+    width: 100%;
+    height: auto;          
+    border-radius: 0.8rem;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 3 / 4;   
+    max-width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.119);
+    border: 2px solid rgba(149, 149, 149, 0.076);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-img:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.project-title{
+    margin-bottom: 0px;
+    color: #6f62f7;
+}
+
+.project-category{
+    margin-bottom: 0px;
+    color: #1f1f1f;
+}
+
+.project-description{
+    color: #1f1f1f;
+}
+
+/* BENEFITS */
+
+.benefits{
+    background-color: #e8e8f8;
+    padding: 2rem 8rem 5rem;
+}
+
+.benefits-list{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6rem;
+}
+
+.benefits-highlight{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5rem;
+    color: #1f1f1f;
+}
+
+.benefit-img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    max-width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* FOOTER / CONTACT */
+
+.footer{
+    background-color: #fdfdfd;
+    padding: 4rem 5rem 2rem;
+}
+
+.footer-content{
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-title{
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+}
+
+.footer-description{
+    margin: 0 0 3rem;
+    font-size: 0.9rem;
+    color: #8b8b8b;
+}
+
+/* fila con Localización / Teléfono / Email */
+.footer-info{
+    display: flex;
+    justify-content: center;
+    gap: 6rem;
+}
+
+.footer-info-item{
+    min-width: 160px;
+}
+
+.footer-info-label{
+    margin: 0 0 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #999999;
+}
+
+.footer-info-text{
+    margin: 0;
+    font-size: 0.8rem;
+    color: #555555;
+}
+
+/* línea y texto inferior */
+.footer-copy{
+    max-width: 1100px;
+    margin: 3rem auto 0;
+    padding-top: 1rem;
+    border-top: 1px solid #eeeeee;
+    text-align: center;
+}
+
+.footer-copy-text{
+    margin: 0;
+    font-size: 0.75rem;
+    color: #b3b3b3;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+/* Tablets / pantallas medianas */
+@media (max-width: 1024px) {
+
+    .projects{
+        padding: 3rem 3rem;
+    }
+
+    .project-list{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.8rem;
+    }
+
+    .benefits{
+        padding: 3rem 3rem 4rem;
+    }
+
+    .benefits-list{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 3rem;
+    }
+}
+
+/* MÓVIL: todo en una columna, paddings más pequeños */
+@media (max-width: 768px){
+
+    /* HEADER */
+    .navbar{
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 1.5rem 0;
+    }
+
+    .logo-text{
+        font-size: 1rem;
+    }
+
+    .navbar-list{
+        gap: 1rem;
+        font-size: 0.85rem;
+    }
+
+    .hero{
+        margin-top: 2.5rem;
+        padding: 0 1.5rem;
+        text-align: center;
+    }
+
+    .hero-title{
+        font-size: 1.8rem;
+    }
+
+    .hero-text{
+        font-size: 0.95rem;
+    }
+
+    .hero-button{
+        margin-bottom: 5rem;
+    }
+
+    /* PROJECTS */
+    .projects{
+        padding: 2.5rem 1.5rem;
+    }
+
+    .projects-header{
+        padding: 0;
+        text-align: left;
+    }
+
+    .project-list{
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+    }
+
+    .project-card{
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .project-img{
+        max-width: 220px;
+    }
+
+    /* BENEFITS */
+    .benefits{
+        padding: 2.5rem 1.5rem 3.5rem;
+        text-align: center;
+    }
+
+    .benefits-list{
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .benefit-img{
+        max-width: 120px;
+    }
+
+    .benefits-highlight{
+        margin-top: 3rem;
+    }
+
+    /* FOOTER */
+    .footer{
+        padding: 3rem 1.5rem 2rem;
+    }
+
+    .footer-info{
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .footer-info-item{
+        min-width: auto;
+    }
+}
